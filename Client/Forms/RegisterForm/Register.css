@@ -1,0 +1,5 @@
+.Register{
+    display: flex;
+    flex-direction: column;   
+    background-image: url('https://images.pexels.com/photos/6956302/pexels-photo-6956302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+}
