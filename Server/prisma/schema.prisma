@@ -14,22 +14,53 @@ datasource db {
 }
 
 model Expense {
-    id    Int     @id @default(autoincrement())
-    categoryId Int
-    category Category  @relation(fields: [categoryId], references: [id], name: "ExpensesOnCategory")
-    Product String
-    Amount Int
-    Date DateTime
-  
+  id         Int      @id @default(autoincrement())
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id], name: "ExpensesOnCategory")
+  Product    String
+  Amount     Int
+  Date       DateTime @default(now())
 }
-model Category{
-  id Int @id @default(autoincrement())
-  name String
-  expenses  Expense[] @relation(name: "ExpensesOnCategory")
+
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String    @unique
+  expenses Expense[] @relation(name: "ExpensesOnCategory")
+  Income   Income[]  @relation(name: "IncomeOnCategory")
+ 
 }
-model Users{
-  id Int @id @default(autoincrement())
-  email String
-  username String
-  password String
+
+model Users {
+  id        String @id @default(uuid())
+  email     String @unique
+  username  String @unique
+  password  String
+  firstname String
+  lastname  String
+}
+
+model Income {
+  id         Int      @id @default(autoincrement())
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id], name: "IncomeOnCategory")
+  source     String // Renamed for clarity
+  amount     Float // Assuming amount is a decimal value
+  date       DateTime @default(now())
+}
+
+enum IncomeCategory {
+  SALARY
+  INVESTMENT
+  GIFT
+  CRYPTOCURRENCY
+  INTEREST
+  STOCK
+  FREELACING
+}
+model Budget {  // New model for budgets
+  id          Int      @id @default(autoincrement())
+  category    String  // Category for the budget (e.g., "Groceries," "Entertainment")
+  amount      Float    // Total amount allocated for the budget
+  remaining   Float    // Optional field to track remaining balance
+  createdAt   DateTime @default(now())
 }

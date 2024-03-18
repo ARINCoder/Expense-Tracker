@@ -20,14 +20,17 @@ dependencies:
   nodemon:
     specifier: ^3.1.0
     version: 3.1.0
+  validator:
+    specifier: ^13.11.0
+    version: 13.11.0
 
 devDependencies:
   prisma:
     specifier: ^5.10.2
     version: 5.10.2
-  prisma-client:
-    specifier: ^0.0.0
-    version: 0.0.0
+  uuid:
+    specifier: ^9.0.1
+    version: 9.0.1
 
 packages:
 
@@ -813,10 +816,6 @@ packages:
     engines: {node: '>=8.6'}
     dev: false
 
-  /prisma-client@0.0.0:
-    resolution: {integrity: sha512-tbK0ZaUt4E9IkQalS+2V5dv45lTcwxWNSXenRNEgSuzTJWW3T6SUgBfuk0gUS5wC07eQNEOU6/SVomVL/hsaHw==}
-    dev: true
-
   /prisma@5.10.2:
     resolution: {integrity: sha512-hqb/JMz9/kymRE25pMWCxkdyhbnIWrq+h7S6WysJpdnCvhstbJSNP/S6mScEcqiB8Qv2F+0R3yG+osRaWqZacQ==}
     engines: {node: '>=16.13'}
@@ -1071,6 +1070,11 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
     dev: false
+
+  /uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
+    dev: true
 
   /validator@13.11.0:
     resolution: {integrity: sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ==}

@@ -1,6 +1,6 @@
 const registerSchema = {
     username: {
-        nonEmpty: {
+        notEmpty: {
             errrorMessage: 'Username cannot be empty',
         },
         isString: {
@@ -14,7 +14,7 @@ const registerSchema = {
 
     },
     email: {
-        nonEmpty: {
+        notEmpty: {
             errrorMessage: 'Email cannot be empty',
         },
         isString: {
@@ -32,7 +32,7 @@ const registerSchema = {
 
     },
     password: {
-        nonEmpty: {
+        notEmpty: {
             errrorMessage: 'Password cannot be empty',
         },
         isString: {
@@ -40,6 +40,30 @@ const registerSchema = {
         },
         isLength: {
             errorMessage: 'Password must be at least 3 characters long',
+            options: { min: 7 }
+        }
+    },
+    firstname: {
+        notEmpty: {
+            errrorMessage: 'Firstname cannot be empty',
+        },
+        isString: {
+            errorMessage: 'Firstname must be a string',
+        },
+        isLength: {
+            errorMessage: 'Firstname must be at least 3 characters long',
+            options: { min: 7 }
+        },
+    },
+    lastname: {
+        notEmpty: {
+            errorMessage: 'Lastname must be at least 3 characters long'
+        },
+        isString: {
+            errorMessage: 'Lastname must be a string',
+        },
+        isLength: {
+            errorMessage: 'Lastname must be at least 3 characters long',
             options: { min: 7 }
         }
     }

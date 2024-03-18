@@ -24,6 +24,18 @@ const loginSchema = {
             errorMessage:'Password must be at least 3 characters long',
             options: { min:7}
         }
-    } 
+    },
+    email:{
+        nonEmpty: {
+            errrorMessage: 'Email cannot be empty',
+        },
+        isString: {
+            errorMessage: 'Email must be a string'
+        },
+        isLength: {
+            errorMessage: 'Email must be at least 3 characters long',
+            options: { min:7}
+        }
+    }
 }
-export default loginSchema
+module.exports = loginSchema
