@@ -23,7 +23,6 @@ const register = async (req, res) => {
         const hash = await bcrypt.hash(password, salt);
         const newUser = await prisma.Users.create({
           data: {
-            // id:id,
             username: username,
             email: email,
             password: hash,
@@ -36,7 +35,8 @@ const register = async (req, res) => {
         res.status(400).send("User already exists");
       }
     } catch (error) {
-      res.status(400).send(error.message);
+      console.error(error)
+      res.status(500).send(error.message);
     }
   };
 

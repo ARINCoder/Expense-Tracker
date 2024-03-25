@@ -14,53 +14,68 @@ datasource db {
 }
 
 model Expense {
-  id         Int      @id @default(autoincrement())
-  categoryId Int
-  category   Category @relation(fields: [categoryId], references: [id], name: "ExpensesOnCategory")
-  Product    String
-  Amount     Int
-  Date       DateTime @default(now())
+  id            Int      @id @default(autoincrement())
+  // categoryId Int
+  category      String
+  // category   Category @relation(fields: [categoryId], references: [id], name: "ExpensesOnCategory")
+  paymentOption String
+  product       String
+  amount        Int
+  date          DateTime @default(now())
+  description   String
 }
 
-model Category {
-  id      Int       @id @default(autoincrement())
-  name    String    @unique
-  expenses Expense[] @relation(name: "ExpensesOnCategory")
-  Income   Income[]  @relation(name: "IncomeOnCategory")
- 
-}
+// model Category {
+//   id       Int       @id @default(autoincrement())
+//   name     String    @unique
+//   expenses Expense[] @relation(name: "ExpensesOnCategory")
+//   Income   Income[]  @relation(name: "IncomeOnCategory")
+// }
 
 model Users {
-  id        String @id @default(uuid())
-  email     String @unique
-  username  String @unique
+  id        String   @id @default(uuid())
+  email     String   @unique
+  username  String   @unique
   password  String
-  firstname String
-  lastname  String
+  firstname String?
+  lastname  String?
+  Income    Income[]
+  // Income    Income[]
 }
 
 model Income {
-  id         Int      @id @default(autoincrement())
-  categoryId Int
-  category   Category @relation(fields: [categoryId], references: [id], name: "IncomeOnCategory")
-  source     String // Renamed for clarity
-  amount     Float // Assuming amount is a decimal value
-  date       DateTime @default(now())
+  id          Int      @id @default(autoincrement())
+  userId      Int      @unique
+  user        Users    @relation(fields: [userId], references: [id])
+  // categoryId Int
+  // category    String
+  // category   Category @relation(fields: [categoryId], references: [id], name: "IncomeOnCategory")
+  source      String // Renamed for clarity
+  amount      Float // Assuming amount is a decimal value
+  date        DateTime @default(now())
+  description String
+  // Users       Users?   @relation(fields: [usersId], references: [id])
+  // usersId     String?
 }
 
-enum IncomeCategory {
-  SALARY
-  INVESTMENT
-  GIFT
-  CRYPTOCURRENCY
-  INTEREST
-  STOCK
-  FREELACING
+//Haven't created this.
+model Budget {
+  id        Int      @id @default(autoincrement())
+  category  String // Category for the budget (e.g., "Groceries," "Entertainment")
+  amount    Float // Total amount allocated for the budget
+  remaining Float? // Optional field to track remaining balance
+  date      DateTime @default(now())
 }
-model Budget {  // New model for budgets
+
+//Haven't Created this
+model Transaction {
   id          Int      @id @default(autoincrement())
-  category    String  // Category for the budget (e.g., "Groceries," "Entertainment")
-  amount      Float    // Total amount allocated for the budget
-  remaining   Float    // Optional field to track remaining balance
+  amount      Decimal  @default(0)
+  isIncome    Boolean  @default(false)
+  date        DateTime @default(now())
+  description String
   createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  incomeId    Int
+  expenseId   Int
 }

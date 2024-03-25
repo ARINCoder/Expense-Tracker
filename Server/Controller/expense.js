@@ -3,11 +3,12 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const Expense = async (req, res) => {
-    const { category, amount, product, description } = req.body
+    const { category, paymentOption, amount, product, description } = req.body
     try {
         const newExpense = await prisma.Expense.create({
             data: {
                 category,
+                paymentOption,
                 amount,
                 product,
                 description

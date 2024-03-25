@@ -1,0 +1,61 @@
+.income {
+  display: flex;
+  flex-direction: column !important;
+  background-image: url('../../assets//pexels-tima-miroshnichenko-6694543.jpg');
+  background-size: cover;
+  /* Adjust background size as needed */
+  background-repeat: no-repeat;
+  /* Prevent image repetition */
+  background-position: center;
+
+  label {
+    margin-left: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 100px;
+
+    input {
+      width: 140px;
+    }
+
+  }
+
+  button {
+    background-color: rgb(54, 206, 206);
+    color: white;
+    margin-top: 20px;
+  }
+
+
+
+  .Incomelist {
+    display: flex;
+    flex-direction: row;
+    border: 10px solid black;
+    border-radius: 10px;
+
+    h2 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .list {
+      border: 1px solid black;
+      width: 100vw;
+      margin-top: 100px;
+
+    }
+    li{
+      border: 1px solid black;
+      list-style: none;
+      margin-right: 30px;
+      margin-bottom: 10px;
+      
+
+
+    }
+
+  }
+
+
+}

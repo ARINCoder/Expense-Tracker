@@ -1,8 +1,9 @@
 const { Router } = require('express');
-const LoginSchema = require('../../Validators/LoginSchema');
-const login = require('../../Controller/login');
-const { checkSchema, validationResult } = require('express-validator')
+const { login, logout } = require('../../Controller/login');
+const { checkSchema } = require('express-validator');
+const loginSchema = require('../../Validators/LoginSchema');
 
 const loginRouter = Router();
-loginRouter.post('/login', checkSchema(LoginSchema), login)
+loginRouter.post('/login',checkSchema(loginSchema), login)
+loginRouter.post('/logout', logout)
 module.exports = loginRouter;
