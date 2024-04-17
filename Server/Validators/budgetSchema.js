@@ -14,9 +14,9 @@ const budgetSchema = {
       notEmpty: {
         errorMessage: "Cannot be Empty"
       },
-      positive: {
-        errorMessage: "Must be greater than or equal to 0"
-      }
+      // positive: {
+      //   errorMessage: "Must be greater than or equal to 0"
+      // }
     },
     description: {
       isString: {

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { AuthContext } from '../Context/Auth Context/AuthContext';
 import Register from './Register';
 import { Link } from 'react-router-dom';
+import '../Routes/login.scss'
 
 
 const Login = ({ onLogin }) => {
@@ -17,7 +18,7 @@ const Login = ({ onLogin }) => {
         event.preventDefault();
         try {
             await Login(credentials)
-            return  navigate('/income')
+            return navigate('/income')
         } catch (error) {
             console.log(error);
 
@@ -27,26 +28,28 @@ const Login = ({ onLogin }) => {
 
 
     return (
-        <div>
+        <div className='login'>
             <form onSubmit={handleSubmit}>
 
-                <h1> LogIn </h1>
+                <h1 className='header'> LogIn </h1>
                 <label htmlFor='email'>
-                    Email:
+                    <h1>Email:</h1>
                 </label>
                 <input
                     type='email'
                     value={credentials.email}
+                    placeholder='Email Address'
                     onChange={(event) =>
                         setCredentials({ ...credentials, email: event.target.value })}
 
                 />
 
                 <label>
-                    Password:
+                    <h1>Password </h1>:
                     <input
                         type='password'
                         value={credentials.password}
+                        placeholder='Password'
                         onChange={(event) =>
                             setCredentials({ ...credentials, password: event.target.value })}
                     />

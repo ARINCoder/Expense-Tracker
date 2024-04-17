@@ -23,7 +23,7 @@ const Register = () => {
         try {
             const response = await axios.post('http://localhost:3000/register', identifier)
             console.log("Registration successful", response.data);
-                         navigate('/login')
+            navigate('/login')
 
 
         } catch (error) {
@@ -32,6 +32,7 @@ const Register = () => {
         }
     }
     return (
+
         <div className='register'>
             <h1> Register </h1>
             <form onSubmit={handleSubmit}>

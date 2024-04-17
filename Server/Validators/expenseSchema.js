@@ -14,9 +14,9 @@ const expenseSchema = {
       notEmpty: {
         errorMessage: "Cannot be Empty"
       },
-      positive: {  // Ensure expenses are non-negative
-        errorMessage: "Must be greater than or equal to 0"
-      }
+      // positive: {  // Ensure expenses are non-negative
+      //   errorMessage: "Must be greater than or equal to 0"
+      // }
     },
     product: {
       isString: {

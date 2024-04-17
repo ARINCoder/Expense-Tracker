@@ -1,7 +1,7 @@
 //Creating a schema
 const loginSchema = {
     username: {
-        nonEmpty: {
+        notEmpty: {
             errrorMessage: 'Username cannot be empty',
         },
         isString: {
@@ -14,19 +14,19 @@ const loginSchema = {
         }
     },
     password: {
-        nonEmpty: {
+        notEmpty: {
             errrorMessage: 'Password cannot be empty',
         },
         isString: {
             errorMessage: 'Password must be a string'
         },
         isLength: {
-            errorMessage:'Password must be at least 3 characters long',
-            options: { min:7}
+            errorMessage: 'Password must be at least 3 characters long',
+            options: { min: 7 }
         }
     },
-    email:{
-        nonEmpty: {
+    email: {
+        notEmpty: {
             errrorMessage: 'Email cannot be empty',
         },
         isString: {
@@ -34,7 +34,7 @@ const loginSchema = {
         },
         isLength: {
             errorMessage: 'Email must be at least 3 characters long',
-            options: { min:7}
+            options: { min: 7 }
         }
     }
 }

@@ -10,6 +10,7 @@ const createTransaction = async (req, res) => {
     try {
         let transactionData = {
             amount,
+            date,
             description,
             isIncome,
             date: new Date(),

@@ -8,8 +8,9 @@ import Addbudget from './Components/Addbudget'
 import Addexpense from './Components/expensecomponent/Addexpense'
 import { IncomeProvider } from './Context/Income Context/incomeContext'
 import { ExpenseProvider } from './Context/Expense Context/expenseContext'
-import Navbar from './Components/navBar'
+import Navbar from './Components/Navbar/navBar'
 import Footer from './Components/footer'
+import HomePage from './Components/Homepage/homepage'
 
 // import PrivateRoute from './Components/Protected Route/PrivateRoute'
 
@@ -29,6 +30,11 @@ function App() {
       path: '/',
       element: <Layout />,
       children: [
+        {
+          path: '/',
+          element: <HomePage/>
+
+        },
         {
           path: '/income',
           element: <Addincome />

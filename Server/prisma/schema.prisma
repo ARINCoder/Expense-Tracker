@@ -39,17 +39,14 @@ model Users {
   password  String
   firstname String?
   lastname  String?
-  Income    Income[]
+  // Income    Income[]
   // Income    Income[]
 }
 
 model Income {
   id          Int      @id @default(autoincrement())
-  userId      Int      @unique
-  user        Users    @relation(fields: [userId], references: [id])
-  // categoryId Int
-  // category    String
-  // category   Category @relation(fields: [categoryId], references: [id], name: "IncomeOnCategory")
+  // userId      Int      @unique
+  // user        Users    @relation(fields: [userId], references: [id])
   source      String // Renamed for clarity
   amount      Float // Assuming amount is a decimal value
   date        DateTime @default(now())

@@ -66,6 +66,7 @@ const login = async (req, res) => {
   console.log('body ', req.body);
   try {
     const { username, email, password } = req.body;
+    console.log(email, username);
 
     // Validate username or email presence
     if (!username && !email) {

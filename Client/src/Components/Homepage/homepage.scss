@@ -1,0 +1,62 @@
+.homepage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column !important;
+    background-image: url('../../assets/pexels-monstera-production-5849559.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    h1 {
+        font-size: 60px;
+        color: black;
+    }
+
+    p {
+        font-size: 16px;
+        color: black;
+        margin-right: 300px;
+    }
+
+    .features {
+        display: flex;
+        font-size: 20px;
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            color: black;
+            font-size: 10px;
+            justify-content: space-around;
+            align-items: center;
+
+            li {
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid black;
+                border-radius: 10px;
+
+            }
+        }
+    }
+
+    .cta {
+        display: flex;
+        flex-direction: column;
+        font-size: x-large;
+        color: black;
+        margin-top: 300px;
+        width: 600px;
+
+        a {
+            color: black;
+
+            li {
+                list-style: none;
+            }
+
+        }
+    }
+}

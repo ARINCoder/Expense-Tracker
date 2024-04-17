@@ -74,16 +74,16 @@ const Addincome = () => {
     setTotalIncome(newTotalincome)
   }, [incomeList]);
 
-  // useEffect(() => {
-  //   const storedIncomeList = localStorage.getItem('incomeList');
-  //   if (storedIncomeList) {
-  //     const parsedIncomeList = JSON.parse(storedIncomeList);
-  //     setIncomeList(parsedIncomeList)
-  //   }
-  // }, []);
+  useEffect(() => {
+    const storedIncomeList = localStorage.getItem('incomeList');
+    if (storedIncomeList) {
+      const parsedIncomeList = JSON.parse(storedIncomeList);
+      setIncomeList(parsedIncomeList)
+    }
+  }, []);
   useEffect(() => {
     const fetchIncome = async () => {
-      const incomes = await axios.get(`${BASE_URL}/incomes`)
+      const incomes = await axios.get('http:localhost:3000/incomes', { withCredentials: true })
       setIncomeList(incomes.data)
     }
     fetchIncome()
@@ -170,13 +170,16 @@ const Addincome = () => {
                   </li>
                 ))}
               </ul>
-            
-          ) : (
-          <p>No Income Added</p>
-          )
-          }
+
+            ) : (
+              <p>No Income Added</p>
+            )
+            }
           </form>
           <p>Total Income: {totalIncome}</p>
+        </div>
+        <div>
+          {/* <barGraph /> */}
         </div>
       </div>
       :
